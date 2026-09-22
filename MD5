@@ -1,0 +1,15 @@
+58574362a012652cd3311d54fe45406c *DESCRIPTION
+dc54f47a5d7a76e1befaf5177d51f74e *NAMESPACE
+f178cfd6a2ede2b9f84590a7239d8afa *R/boot.clnreg.R
+c44abc05b60ded32dd46e74f2b4b7f4f *R/cln.contour.R
+5c14f8a8f9414e71ddb316ead993caa8 *R/cln.mle.R
+a7718438acd3dea127d61f4160ab771d *R/cln.reg.R
+1ff49f4d5a8624a0f7140ad45e33afb4 *R/dcln.R
+e78c6aa68ddf0b0ae35a9ca9ae99eb55 *R/ternary.R
+0d5261f023ad220322ca5f0ceb7865cb *man/Compositionalcln-package.Rd
+a396905af8991216a153596308089a77 *man/boot.clnreg.Rd
+fd4c6065b0627a9a821b184f9c9222db *man/cln.contour.Rd
+b113868a79893b57a35c05003b418471 *man/cln.mle.Rd
+c69075cb587d5c3aa3cbb9b18406c7a2 *man/cln.reg.Rd
+0561844c506ed21f3ee793e9f5500d7a *man/dcln.Rd
+279562a4df4815d46ff38622aca57fde *man/ternary.Rd
