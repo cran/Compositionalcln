@@ -14,10 +14,10 @@ cln.contour(m, S, n = 100, y = NULL, cont.line = FALSE)
 
 \arguments{
 \item{m}{
-A value with the concentration parameter.
+A value with the mean vector in \eqn{S^2}.
 }
 \item{S}{
-A vector with the mean vector (3 values) in the simplex.
+The covariance matrix in \eqn{S^2}.
 }
 \item{n}{
 The number of grid points to consider over which the density is calculated.
@@ -69,5 +69,4 @@ mod <- cln.mle(y)
 cln.contour( m = mod$m, S = mod$S )
 }
 
-\keyword{ Dirichlet distribution }
-\keyword{ contour plot }
+

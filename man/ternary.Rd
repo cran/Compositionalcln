@@ -1,4 +1,4 @@
-\name{Ternary diagram}
+\name{ternary}
 \alias{ternary}
 
 \title{
@@ -15,7 +15,7 @@ ternary(y, dg = FALSE, hg = FALSE, m = NULL, colour = NULL)
 
 \arguments{
 \item{y}{
-A matrix with the compositional data.
+A matrix with the compositional data (with zero values present).
 }
 \item{dg}{
 Do you want diagonal grid lines to appear? If yes, set this TRUE.
@@ -24,7 +24,7 @@ Do you want diagonal grid lines to appear? If yes, set this TRUE.
 Do you want horizontal grid lines to appear? If yes, set this TRUE.
 }
 \item{m}{
-If you know the estimated mean pass it here, otherwise leave it NULL. It will appear
+If you know the estimated simplicial mean pass it here, otherwise leave it NULL. It will appear
 with the symbol +.
 }
 \item{colour}{

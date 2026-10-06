@@ -1,15 +1,15 @@
-\name{boot.clnreg}
-\alias{boot.clnreg}
+\name{cln.regs}
+\alias{cln.regs}
 \title{
-Bootstrap for the conditional logistic normal regression
+Many conditional logistic normal regressions
 }
 
 \description{
-Bootstrap for the conditional logistic normal regression.
+Many conditional logistic normal regressions.
 }
 
 \usage{
-boot.clnreg(y, x, tol = 1e-6, maxit = 500, R = 1000)
+cln.regs(y, X, tol = 1e-6, maxit = 500)
 }
 
 \arguments{
@@ -18,8 +18,9 @@ A matrix with the compositional data (dependent variable). The number of observa
 (vectors) with no zero values should be more than the columns of the predictor variables.
 Otherwise, the initial values will not be calculated.
 }
-\item{x}{
-The predictor variable(s), they can be either continnuous or categorical or both.
+\item{X}{
+A matrix with the predictor variable(s). A regression model will be fit to each
+of them, separately.
 }
 \item{tol}{
 The tolerance value to terminate the EM algorithm.
@@ -27,31 +28,26 @@ The tolerance value to terminate the EM algorithm.
 \item{maxit}{
 The maximum number of iterations allowed for the EM algorithm.
 }
-\item{R}{
-The number of bootstrap resamples to generate.
-}
 }
 
 \details{
-Bootstrap to estimate the covariance matrix of the coefficients of the conditional
-logistic normal regression is performed.
+A conditional logistic normal regression is being fitted for each of the columns
+of X.
 }
 
 \value{
 A list including:
-\item{beta}{
-The bootstrapped beta coefficients.
+\item{stat}{
+A vector with the log-likelihood ratio test statistics.
 }
-\item{sigma}{
-The bootstrap estimate of the covariance matrix of the regression parameters.
+\item{pvalue}{
+A vector with the corresponding logged p-values.
 }
 }
 
 \references{
 Alzeley O. and Tsagris M. (2026). Modelling compositional data with structural zero values
 https://arxiv.org/pdf/2608.29954
-
-Aitchison J. (1986). The statistical analysis of compositional data, pages 272--274.
 }
 
 
@@ -71,12 +67,12 @@ R implementation and documentation: Michail Tsagris \email{mtsagris@uoc.gr}.
 }
 
 \examples{
-x <- as.vector(iris[, 4])
+x <- matrix( rnorm(150 * 10), ncol = 10 )
 y <- as.matrix(iris[, 1:3])
 y <- y / rowSums(y)
 ind <- sample(150, 10)
 for ( k in ind )  y[k, sample(3, 1)] <- 0
 y <- y / rowSums(y)
-mod <- cln.reg(y, x)
+mod <- cln.regs(y, x)
 }
 

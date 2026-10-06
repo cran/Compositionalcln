@@ -13,8 +13,8 @@ Modelling Compositional Data with Zero Values.
 \tabular{ll}{
 Package: \tab Compositionalcln\cr
 Type: \tab Package\cr
-Version: \tab 1.0 \cr
-Date: \tab 2026-09-12 \cr
+Version: \tab 1.1 \cr
+Date: \tab 2026-10-06 \cr
 }
 }
 

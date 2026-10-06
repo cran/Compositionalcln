@@ -9,7 +9,7 @@ Conditional logistic normal regression.
 }
 
 \usage{
-cln.reg(y, x, tol = 1e-6, maxit = 500, xnew = NULL)
+cln.reg(y, x, tol = 1e-6, maxit = 500, seb = FALSE, xnew = NULL)
 }
 
 \arguments{
@@ -26,6 +26,9 @@ The tolerance value to terminate the EM algorithm.
 }
 \item{maxit}{
 The maximum number of iterations allowed for the EM algorithm.
+}
+\item{seb}{
+If you want the standard errors of the regression coefficients set this to TRUE.
 }
 \item{xnew}{
 If you have new data use it, otherwise leave it NULL.
@@ -48,6 +51,9 @@ random values simulation.
 }
 \item{iters}{
 The number of iterations required by the EM algorithm.
+}
+\item{S}{
+The covariance of the latent residuals.
 }
 \item{beta}{
 The beta coefficients.
@@ -86,7 +92,6 @@ R implementation and documentation: Michail Tsagris \email{mtsagris@uoc.gr}.
 \examples{
 x <- as.vector(iris[, 4])
 y <- as.matrix(iris[, 1:3])
-y <- y / rowSums(y)
 ind <- sample(150, 10)
 for ( k in ind )  y[k, sample(3, 1)] <- 0
 y <- y / rowSums(y)

@@ -1,5 +1,5 @@
-\name{cln.mle}
-\alias{cln.mle}
+\name{boot.clnmle}
+\alias{boot.clnmle}
 
 \title{
 Maximum likelihood estimation of the conditional logistic normal model
@@ -10,7 +10,7 @@ Maximum likelihood estimation of the conditional logistic normal model.
 }
 
 \usage{
-cln.mle(y, tol = 1e-6, maxit = 500)
+boot.clnmle(y, tol = 1e-6, maxit = 500, R = 1000)
 }
 
 \arguments{
@@ -23,33 +23,26 @@ The tolerance value to terminate the EM algorithm.
 \item{maxit}{
 The maximum number of iterations allowed for the EM algorithm.
 }
+\item{R}{
+The number of bootstrap resamples to generate.
+}
 }
 
 \details{
-The function fits the conditional multivariate logistic normal distribution (Alzeley and Tsagris, 2026).
+The function performs non-parametric bootstrap for the conditional multivariate
+logistic normal distribution (Alzeley and Tsagris, 2026).
 }
 
 \value{
 A list including:
 \item{m}{
-The mean vector in the Euclidean space.
+The bootsrap mean vectors in the Euclidean space.
 }
 \item{mesi}{
-The mean vector in the simplex space.
+The bootstrap mean vectors in the simplex space.
 }
 \item{S}{
-The estimated covariance matrix.
-}
-\item{loglik}{
-The log-likelhiood value.
-}
-\item{patterns}{
-A matrix with the patterns of zeros, where the value of 0 indicates the presence of a zero,
-and the last column contains the percentage of occurrence each pattern. This is useful for
-random values simulation.
-}
-\item{iters}{
-The number of iterations required by the EM algorithm.
+The bootstrap estimated covariance matrices.
 }
 }
 
@@ -81,7 +74,7 @@ y <- y / rowSums(y)
 ind <- sample(150, 10)
 for ( k in ind )  y[k, sample(3, 1)] <- 0
 y <- y / rowSums(y)
-cln.mle(y)
+mod <- boot.clnmle(y, R = 300)
 }
 
 
